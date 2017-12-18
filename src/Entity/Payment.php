@@ -61,6 +61,16 @@ final class Payment extends \Softr\Asaas\Entity\AbstractEntity
     /**
      * @var string
      */
+    public $originalDueDate;
+
+    /**
+     * @var string
+     */
+    public $externalReference;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -72,6 +82,31 @@ final class Payment extends \Softr\Asaas\Entity\AbstractEntity
      * @var string
      */
     public $description;
+
+    /**
+     * @var string
+     */
+    public $dateCreated;
+
+    /**
+     * @var string
+     */
+    public $paymentDate;
+
+    /**
+     * @var string
+     */
+    public $clientPaymentDate;
+
+    /**
+     * @var boolean
+     */
+    public $deleted;
+
+    /**
+     * @var string
+     */
+    public $bankSlipUrl;
 
     /**
      * @var string
@@ -97,6 +132,11 @@ final class Payment extends \Softr\Asaas\Entity\AbstractEntity
      * @var float
      */
     public $installmentValue;
+
+    /**
+     * @var string
+     */
+    public $installment;
 
     /**
      * @var string
@@ -196,8 +236,8 @@ final class Payment extends \Softr\Asaas\Entity\AbstractEntity
     /**
      * @param  string  $dueDate
      */
-    public function setDueDate($dueDate)
+   /* public function setDueDate($dueDate)
     {
         $this->dueDate = static::convertDateTime($dueDate);
-    }
+    }*/
 }
