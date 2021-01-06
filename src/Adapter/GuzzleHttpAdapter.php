@@ -160,8 +160,13 @@ class GuzzleHttpAdapter implements AdapterInterface
         $body = (string) $this->response->getBody();
         $code = (int) $this->response->getStatusCode();
 
+        $message = 'Request not processed.';
         $content = json_decode($body);
 
-        throw new HttpException(isset($content->message) ? $content->message : 'Request not processed.', $code);
+        if (!empty($content->errors)) {
+            $message = $content->errors[0]->description;
+        }
+
+        throw new HttpException($message, $code);
     }
 }
